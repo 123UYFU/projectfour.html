@@ -1,0 +1,203 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CNN HOME</title>
+    <link rel="icon" type="image/png" sizes="32*32" href="images/ourlogo.png">
+     <link rel="stylesheet" href="main.css">
+     
+?>
+</head>
+<body>
+    
+    <label for="language">CHOOSElanguage</label>
+
+<select name="language" id="1"></select>
+    
+    <optgroup label="PHP"></optgroup>
+    <option value="1">v5.0</option>
+    <option value="2">v7.0</option>
+    <option value = "3">v8.0</option>
+    <optgroup label="Python"></optgroup>
+    <option value="1">v2.0</option>
+    <option value="2">v3.0</option>
+    <option value="3">v4.0</option>
+    
+
+</select>
+    <form id="myForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+    
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+    
+        <button type="submit">Send</button>
+    </form>
+    
+
+
+
+
+
+
+
+
+    
+    <header>
+        <div class ="left-header">
+         <label>
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+         </label>
+         <div class="menu-lists">
+            <ul>
+                <li class="cnn-motto"></li>
+                <li>CNN</li>
+                <li>World</li>
+                <li>Politics</li>
+                <li>Buisness</li>
+                <li>Health</li>
+                <li>More</li>
+            </ul>
+            </div>
+            </div>
+            <div class="right-header"></div>
+            <div class="Audio-btn">Audio</div>
+            <div class="search-btn">Search</div>
+            <div class="log-in">Login</div>
+            </header>
+
+            
+
+
+
+            
+         </div>
+        </div>
+    </header>
+    <section class="top-headlines">
+        <div class="headline">
+            <h1 class=""headline-type></h1>
+            <h1 class="headline-title"></h1>
+
+        </div>
+        <div class="headline">
+            <h1 class=""headline-type></h1>
+            <h1 class="headline-title"></h1>
+        </div>
+        <div class="headline">
+        <h1 class="headline-type">TRENDING</h1>
+        <h1 class="headline-title">Hong Kong</h1>
+        <h1 class="headline-title">Lithuania militia</h1>
+        <h1 class="headline-title">R.kelly</h1>
+        <h1 class="headline-title">India Killing</h1>
+
+        </div>
+
+    </section>
+    <section class="updates">
+        <div class="left-updates"></div>
+            <h1 class="left-updates-top-headline">
+            Putin issues warning over Finland and Sweden Nato 
+            bids </h1>
+            <img 
+            src="1.jpg"
+            alt="Putin"
+            class="img-left-updates">
+            <p class="para">
+                After NATO invited the two countries to join the alliance,
+                 the Russian President said Moscow would "respond symmetrically "
+                 to any military or infrastructure buildup
+
+            </p>
+            <div class="left-updates-more-headlines">
+                <div class="left-updates-more-headines-topic-one"></div>
+                <p>US to boost troop level in Europe as  Nato unveils expansion</p>
+                <hr style=""width:100%; text-align: left;
+                margin-left: 0;>
+            </div>
+            
+            
+            <div class="middle-updates"></div>
+            <img class="img-middle-updates-img">
+            src="2.jpg"
+            <p>
+
+            
+
+             china
+              throws 
+             media shield
+              around xi visit
+
+            Xi Jinping brought Hong Kong to heel . Now he is back in a city transformedb
+            </p>
+            <div class="middle-updates-more-headlines"></div>
+
+            <p>
+                Al-Shifa hospital shuts down major services as it's plunged into darkness , doctor says
+            </p>
+            <img src="3.jpg">
+            <div class="middle-updates-more-headline-topic one"></div>
+    
+            <div class="right-updates"></div>
+            </section>
+  
+    <script>
+    // Retrieve the form element and add a submit event listener
+    const form = document.getElementById("myForm");
+    form.addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        // Retrieve the username and password values from the form
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+
+        // Create a new FormData object and append the username and password
+        const formData = new FormData();
+        formData.append("username", username);
+        formData.append("password", password);
+
+        // Send a POST request to the PHP script
+        fetch("save_user.php", {
+            method: "POST",
+            body: formData
+        })
+        .then(response => response.text())
+        .then(data => {
+            console.log(data); // Display the response from the PHP script
+        })
+        .catch(error => {
+            console.error(error);
+        });
+    });
+</script>
+
+
+
+
+<?php
+// Retrieve the submitted username and password from the form
+$username = $_POST['username'];
+$password = $_POST['password'];
+
+// Validate the data (you can add more validation if needed)
+
+// Create a database connection
+$conn = new mysqli('localhost', 'username', 'password', 'database_name');
+if ($conn->connect_error) {
+    die('Connection failed: ' . $conn->connect_error);
+}
+
+
+
+        
+        
+
+    
+</body>
+</html>
